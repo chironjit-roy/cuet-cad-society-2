@@ -8,6 +8,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle2, Users, Award, Lightbulb } from "lucide-react";
 
+import { registreeService } from '../firebase/firestore.js';
+
+async function handleRegistration(formData) {
+  const result = await registreeService.registerForEvent(formData);
+  if (result.success) {
+    alert('Registration successful!');
+  } else {
+    alert('Registration failed: ' + result.error);
+  }
+}
+
 const Join = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
