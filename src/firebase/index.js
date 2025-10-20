@@ -24,3 +24,12 @@ export const storage = getStorage(app);
 export const auth = getAuth(app);
 
 export default app;
+
+// Re-export everything from individual modules
+export * from './collections.js';
+export * from './firestore.js';
+export * from './storage.js';
+export * from './auth.js';
+
+// Main Firebase app and services
+export { db, storage, auth, app } from './index.js';
